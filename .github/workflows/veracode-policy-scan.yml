@@ -13,8 +13,8 @@ jobs:
         callback_url: ${{ github.event.client_payload.callback_url }}
         sha: ${{ github.event.client_payload.sha }}
         run_id: ${{ github.run_id }}
-        repositroy_owner: ${{ github.event.client_payload.repository.owner }}
-        repositroy_name: ${{ github.event.client_payload.repository.name }}
+        repository_owner: ${{ github.event.client_payload.repository.owner }}
+        repository_name: ${{ github.event.client_payload.repository.name }}
         name: "Central markdown check"
         enforce: true
         
