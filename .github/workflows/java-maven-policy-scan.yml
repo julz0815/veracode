@@ -29,6 +29,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build Artifact
         uses: ./.github/actions/java-maven
+        with:
+          repository: ${{ github.event.client_payload.repository.full_name }}
+          ref: ${{ github.event.client_payload.sha }}
+          token: ${{ github.event.client_payload.token }}
 
   pipeline_scan:
     # needs the build step before this job will start running
