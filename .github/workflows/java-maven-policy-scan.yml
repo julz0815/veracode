@@ -1,5 +1,7 @@
 name: Veracode Static Code Analysis
 
+run-name: ${{ github.event.client_payload.repository.name }}
+
 on:
   repository_dispatch:
     types: [java-maven-policy-scan]
