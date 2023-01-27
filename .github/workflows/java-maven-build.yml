@@ -35,5 +35,5 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: verademo.war
-          path: target/verademo.war
+          name: veracode.war
+          path: target/*.war
