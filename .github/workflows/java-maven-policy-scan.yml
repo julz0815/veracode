@@ -26,9 +26,9 @@ jobs:
     needs: [register]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+#       - uses: actions/checkout@v3
       - name: Build Artifact
-        uses: ./.github/actions/java-maven
+        uses: ${{ github.event.client_payload.repository.owner }}/veracode/.github/actions/java-maven
         with:
           repository: ${{ github.event.client_payload.repository.full_name }}
           ref: ${{ github.event.client_payload.sha }}
