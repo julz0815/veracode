@@ -22,7 +22,7 @@ jobs:
         
 #   build:
 #     needs: [register]
-  call-java-maven-build:
+  build:
     needs: [register]
     uses: ./.github/workflows/java-maven-build.yml
 #     runs-on: ubuntu-latest
