@@ -1,4 +1,4 @@
-run-name: Veracode Static Code Analysis
+run-name: Veracode Static Code Analysis test
 
 on:
   repository_dispatch:
