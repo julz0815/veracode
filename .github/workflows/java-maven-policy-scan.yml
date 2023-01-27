@@ -9,6 +9,8 @@ on:
 jobs:
   register:
     runs-on: ubuntu-latest
+    outputs:
+      waspreview: ${{ github.event.action }}
     steps:
     - uses: vincent-deng/veracode-github-app@aws-ecs-dynamodb
       with:
@@ -21,7 +23,8 @@ jobs:
         enforce: true
         
   build:
-    needs: [register]
+    needs: register
+    if: needs.register.waspreview == 'java-maven-policy-scan1'
     uses: ./.github/workflows/java-maven-build.yml
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
