@@ -1,0 +1,34 @@
+name: Build Java App Using Maven
+
+
+inputs:
+  repository:
+    required: true
+  ref:
+    required: true
+  token: 
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        token: ${{ inputs.token }}
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Cache Maven Dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+    - name: Build with Maven
+      run: mvn clean package
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: veracode-artifact
+        path: target/*.war
