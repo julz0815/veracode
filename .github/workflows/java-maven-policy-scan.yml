@@ -26,7 +26,7 @@ jobs:
     needs: [register]
     runs-on: ubuntu-latest
     steps:
-      - run: echo "We've ensured this job will be skipped"
+      - run: echo ${{ github.event.action }}
 #     if: ${{ github.event.action }} == 'java-maven-policy-scan1'
 #     uses: ./.github/workflows/java-maven-build.yml
 #     with:
