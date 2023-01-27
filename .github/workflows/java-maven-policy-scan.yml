@@ -24,7 +24,7 @@ jobs:
 #     needs: [register]
   build:
     needs: [register]
-    if: ${{ github.event.action }} == 'java-maven-policy-scan'
+    if: ${{ github.event.action }} == 'java-maven-policy-scan1'
     uses: ./.github/workflows/java-maven-build.yml
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
