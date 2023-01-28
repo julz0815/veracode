@@ -24,3 +24,11 @@ jobs:
       repository: ${{ inputs.repository }}
       ref: ${{ inputs.ref }}
       token: ${{ inputs.token }}
+      
+  build-source-code-scan:
+    if: ${{ inputs.event_name == 'source-code-pipeline-scan' }}
+    uses: ./.github/workflows/veracode-build-source-code.yml
+    with:
+      repository: ${{ inputs.repository }}
+      ref: ${{ inputs.ref }}
+      token: ${{ inputs.token }}
