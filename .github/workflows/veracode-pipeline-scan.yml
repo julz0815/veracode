@@ -2,6 +2,10 @@ name: Veracode Static Pipeline Scanner
 
 on:
   workflow_call:
+    inputs:
+      veracode_scan_artifact:
+        required: true
+        type: string
   
 jobs:
   pipeline_scan:
@@ -25,5 +29,5 @@ jobs:
         with:
           vid: ${{ secrets.API_ID }}
           vkey: ${{ secrets.API_KEY }}
-          file: "verademo.war" 
+          file: ${{ inputs.veracode_scan_artifact }}
           fail_build: true
