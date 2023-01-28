@@ -2,10 +2,10 @@ name: Veracode Static Pipeline Scanner
 
 on:
   workflow_call:
-    inputs:
-      veracode_scan_artifact:
-        required: true
-        type: string
+#     inputs:
+#       veracode_scan_artifact:
+#         required: true
+#         type: string
   
 jobs:
   pipeline_scan:
