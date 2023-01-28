@@ -114,6 +114,8 @@ jobs:
     needs: build
 #     runs-on: ubuntu-latest
     uses: ./.github/workflows/veracode-pipeline-scan.yml
+    with:
+      veracode_scan_artifact: ${{ needs.build.outputs.veracode_scan_artifact }}
     secrets: inherit
 #     name: pipeline scan
 
