@@ -1,0 +1,38 @@
+name: Veracode Build Java Maven Application
+
+on:
+  workflow_call:
+    inputs:
+      repository:
+        required: true
+        type: string
+      ref:
+        required: true
+        type: string
+      token:
+        required: true
+        type: string
+  
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        token: ${{ inputs.token }}
+    - name: Setup .NET
+      run: |
+        choco install dotnetcore-sdk -y
+        dotnet --version
+    - name: Build application
+      run: |
+        publish -c Debug -o ./output
+    - name: Create zip archive
+      run: zip -r veracode.zip ./output -x .git/**\*
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: veracode-artifact
+        path: veracode.zip
