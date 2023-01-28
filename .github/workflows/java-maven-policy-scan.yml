@@ -6,8 +6,10 @@ on:
   repository_dispatch:
     types: [java-maven-policy-scan]
 
+# env:
+#   workflow_name: 'my-workflow'
 env:
-  workflow_name: java-maven-build
+  workflow_name: 'java-maven-build'
 
 jobs:
   register:
