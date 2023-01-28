@@ -6,6 +6,9 @@ on:
   repository_dispatch:
     types: [java-maven-policy-scan]
 
+env:
+  workflow_name: ${{ github.event.action }}
+
 jobs:
   register:
     runs-on: ubuntu-latest
@@ -25,7 +28,8 @@ jobs:
   build:
     needs: register
 #     if: needs.register.waspreview == 'java-maven-policy-scan1'
-    uses: ./.github/workflows/${{needs.register.waspreview}}.yml
+#     uses: ./.github/workflows/${{needs.register.waspreview}}.yml
+    uses: ${{ env.workflow_name }}
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
       ref: ${{ github.event.client_payload.sha }}
