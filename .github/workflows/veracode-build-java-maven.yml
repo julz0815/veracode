@@ -55,4 +55,3 @@ jobs:
       with:
         name: veracode-artifact
         path: target/${{ env.veracode_artifact }}
-          fail_build: true
