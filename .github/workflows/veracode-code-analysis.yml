@@ -6,8 +6,6 @@ on:
   repository_dispatch:
     types: [java-maven-pipeline-scan]
 
-# env:
-#   workflow_name: 'my-workflow'
 env:
   workflow_name: 'java-maven-build'
 
@@ -27,7 +25,7 @@ jobs:
         
   build:
     needs: register
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/veracode-build-artifact-for-scanning.yml
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
       ref: ${{ github.event.client_payload.sha }}
@@ -39,6 +37,4 @@ jobs:
     # needs the build step before this job will start running
     needs: build
     uses: ./.github/workflows/veracode-pipeline-scan.yml
-#     with:
-#       veracode_scan_artifact: ${{ needs.build.outputs.veracode_scan_artifact }}
     secrets: inherit
