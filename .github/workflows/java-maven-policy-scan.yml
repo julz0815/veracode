@@ -7,7 +7,7 @@ on:
     types: [java-maven-policy-scan]
 
 env:
-  workflow_name: java-maven-build.yml
+  workflow_name: java-maven-build.yml@main
 
 jobs:
   register:
