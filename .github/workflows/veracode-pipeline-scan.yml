@@ -2,10 +2,6 @@ name: Veracode Static Pipeline Scanner
 
 on:
   workflow_call:
-#     inputs:
-#       veracode_scan_artifact:
-#         required: true
-#         type: string
   
 jobs:
   pipeline_scan:
@@ -21,7 +17,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: veracode-artifact
-#           path: veracode/
       
       - name: Get the name of the downloaded files
         run: |
@@ -35,6 +30,5 @@ jobs:
         with:
           vid: ${{ secrets.API_ID }}
           vkey: ${{ secrets.API_KEY }}
-#           file: ${{ inputs.veracode_scan_artifact }}
           file: ${{ env.veracode_artifact }}
           fail_build: true
