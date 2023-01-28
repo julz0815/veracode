@@ -52,14 +52,20 @@ jobs:
         jar_files=$(find target -name "*.jar" -type f -maxdepth 1 -exec basename {} \;)
         war_files=$(find target -name "*.war" -type f -maxdepth 1 -exec basename {} \;)
         ear_files=$(find target -name "*.ear" -type f -maxdepth 1 -exec basename {} \;)
-        echo "jar_files: $jar_files"
-        echo "war_files: $war_files"
-        echo "ear_files: $ear_files"
-
+        if [ ! -z "$jar_files" ]; then
+          echo "::set-output name=artifact::$jar_files"
+          artifact_file=$jar_files
+        elif [ ! -z "$war_files" ]; then
+          echo "::set-output name=artifact::$war_files"
+          artifact_file=$war_files
+        elif [ ! -z "$ear_files" ]; then
+          echo "::set-output name=artifact::$ear_files"
+          artifact_file=$ear_files
+          
     - uses: actions/upload-artifact@v3
       with:
         name: veracode-artifact
-        path: target/*.war
+        path: target/$artifact_file
         
 #   build:
 #     needs: register
