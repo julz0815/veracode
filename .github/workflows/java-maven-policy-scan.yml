@@ -9,7 +9,7 @@ on:
 # env:
 #   workflow_name: 'my-workflow'
 env:
-  workflow_name: 'java-maven-build'
+  workflow_name: 'java-maven-build@main'
 
 jobs:
   register:
