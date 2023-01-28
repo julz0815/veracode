@@ -50,7 +50,7 @@ jobs:
     - name: Identify the Artifact
       run: |
         war_files=$(find target -name "*.war" -type f -exec basename {} \;)
-        echo "txt_files: $txt_files"
+        echo "war_files: $war_files"
 
     - uses: actions/upload-artifact@v3
       with:
