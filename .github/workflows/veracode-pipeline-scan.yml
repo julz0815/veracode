@@ -31,5 +31,5 @@ jobs:
         with:
           vid: ${{ secrets.API_ID }}
           vkey: ${{ secrets.API_KEY }}
-          file: ${{ env.veracode_artifact }}
+          file: ./veracode_artifact_directory/${{ env.veracode_artifact }}
           fail_build: true
