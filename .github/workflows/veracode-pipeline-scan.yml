@@ -21,6 +21,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: veracode-artifact
+#           path: veracode/
+      
+      - name: Display structure of downloaded files
+        run: ls -R
 
       # run the pipeline scan action
       - name: Veracode Pipeline-Scan
@@ -29,5 +33,6 @@ jobs:
         with:
           vid: ${{ secrets.API_ID }}
           vkey: ${{ secrets.API_KEY }}
-          file: ${{ inputs.veracode_scan_artifact }}
+#           file: ${{ inputs.veracode_scan_artifact }}
+          file: "verademo.war"
           fail_build: true
