@@ -7,7 +7,7 @@ on:
     types: [java-maven-policy-scan]
 
 env:
-  workflow_name: java-maven-build.yml@main
+  workflow_name: java-maven-build.yml
 
 jobs:
   register:
@@ -29,7 +29,7 @@ jobs:
     needs: register
 #     if: needs.register.waspreview == 'java-maven-policy-scan1'
 #     uses: ./.github/workflows/${{needs.register.waspreview}}.yml
-    uses: ${{ env.workflow_name }}
+    uses: ${{ env.workflow_name }}@main
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
       ref: ${{ github.event.client_payload.sha }}
