@@ -30,6 +30,8 @@ jobs:
   build:
     needs: [register]
     runs-on: ubuntu-latest
+    outputs:
+      my_var: ${{ steps.set_var.outputs.veracode_scan_artifact }}
     steps:
     - uses: actions/checkout@v3
       with:
@@ -63,6 +65,7 @@ jobs:
         fi
         echo $artifact_file
         echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
+        echo "::set-output name=veracode_scan_artifact::$artifact_file"
         
     - uses: actions/upload-artifact@v3
       with:
@@ -117,8 +120,8 @@ jobs:
     steps:
       - name: test artifact file
         run: | 
-          echo $veracode_artifact
-          echo ${{ env.veracode_artifact }}
+          echo $veracode_scan_artifact
+          echo ${{ build.veracode_scan_artifact }}
 #       - name: checkout repo
 #         uses: actions/checkout@v3
       
