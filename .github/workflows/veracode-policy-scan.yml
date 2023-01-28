@@ -15,7 +15,7 @@ jobs:
         run_id: ${{ github.run_id }}
         repository_owner: ${{ github.event.client_payload.repository.owner }}
         repository_name: ${{ github.event.client_payload.repository.name }}
-        scan_type: ${{ github.event.event_type }}
+        scan_type: ${{ github.event.action }}
         enforce: true
         
   build:
