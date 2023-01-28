@@ -4,10 +4,7 @@ run-name: ${{ github.event.client_payload.repository.name }}
 
 on:
   repository_dispatch:
-    types: [java-maven-pipeline-scan]
-
-env:
-  workflow_name: 'java-maven-build'
+    types: [java-maven-pipeline-scan, source-code-scan]
 
 jobs:
   register:
