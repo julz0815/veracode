@@ -63,6 +63,7 @@ jobs:
           artifact_file=$ear_files
         else
           echo "no files found"
+        fi
           
     - uses: actions/upload-artifact@v3
       with:
