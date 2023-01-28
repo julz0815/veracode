@@ -120,7 +120,7 @@ jobs:
     steps:
       - name: test artifact file
         run: | 
-          echo ${{ needs.build.veracode_scan_artifact }}
+          echo ${{ needs.build.outputs.veracode_scan_artifact }}
 #       - name: checkout repo
 #         uses: actions/checkout@v3
       
