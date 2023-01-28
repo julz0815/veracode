@@ -31,7 +31,7 @@ jobs:
     needs: register
 #     if: needs.register.waspreview == 'java-maven-policy-scan1'
 #     uses: ./.github/workflows/${{needs.register.waspreview}}.yml
-    uses: ${{ env.workflow_name }}.yml@main
+    uses: ./${{ env.workflow_name }}.yml@main
     with:
       repository: ${{ github.event.client_payload.repository.full_name }}
       ref: ${{ github.event.client_payload.sha }}
