@@ -1,7 +1,6 @@
-[
-  {
-    "repo": "verademo-github-app-dotnet",
+{
+  "verademo-github-app-dotnet": {
     "profile": "Welcome to JSON Viewer Pro",
     "build_workflow": "dot-net-pipeline-scan"
   }
-]
+}
