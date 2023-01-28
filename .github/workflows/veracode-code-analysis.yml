@@ -1,6 +1,6 @@
 name: Veracode Static Code Analysis
 
-run-name: ${{ github.event.client_payload.repository.name }}
+run-name: Static Code Analysis - ${{ github.event.client_payload.repository.name }}
 
 on:
   repository_dispatch:
