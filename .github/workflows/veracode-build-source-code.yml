@@ -22,9 +22,9 @@ jobs:
         repository: ${{ inputs.repository }}
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
-        
+
     - name: Create zip archive
-      run: zip -r veracode.zip . -x .git/*
+      run: zip -r veracode.zip . -x .git/**\*
         
     - uses: actions/upload-artifact@v3
       with:
