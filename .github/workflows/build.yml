@@ -18,6 +18,7 @@ on:
   
 jobs:
   build-java-maven:
+    if: ${{ inputs.event_name == 'java-maven-pipeline-scan' }}
     runs-on: ubuntu-latest
     steps:
     - name: debug
