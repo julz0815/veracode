@@ -39,6 +39,6 @@ jobs:
     # needs the build step before this job will start running
     needs: build
     uses: ./.github/workflows/veracode-pipeline-scan.yml
-    with:
-      veracode_scan_artifact: ${{ needs.build.outputs.veracode_scan_artifact }}
+#     with:
+#       veracode_scan_artifact: ${{ needs.build.outputs.veracode_scan_artifact }}
     secrets: inherit
