@@ -25,14 +25,10 @@ jobs:
         ref: ${{ inputs.ref }}
         token: ${{ inputs.token }}
     - name: Setup .NET Core
-      run: |
-        apt-get update
-        apt-get install -y wget
-        wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-        dpkg -i packages-microsoft-prod.deb
-        apt-get update
-        apt-get install -y dotnet-sdk-3.1
-    - name: Build and Test
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '3.1.x'
+    - name: Build
       run: |
         dotnet restore
         dotnet publish -c Debug -o ./output
