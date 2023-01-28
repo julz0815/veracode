@@ -1,6 +1,6 @@
 name: Veracode Software Composition Analysis
 
-run-name: Composition Analysis - ${{ github.event.client_payload.repository.name }}
+run-name: Software Composition Analysis - ${{ github.event.client_payload.repository.name }}
 
 on:
   repository_dispatch:
