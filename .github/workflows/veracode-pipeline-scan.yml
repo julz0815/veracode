@@ -23,10 +23,10 @@ jobs:
           name: veracode-artifact
 #           path: veracode/
       
-      - name: Display structure of downloaded files
+      - name: Get the name of the downloaded files
         run: |
-          file=$(ls -1 ./ | head -n 1)
-          echo "Only file in directory: $file"
+          artifact_file=$(ls -1 ./ | head -n 1)
+          echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
 
       # run the pipeline scan action
       - name: Veracode Pipeline-Scan
@@ -36,5 +36,5 @@ jobs:
           vid: ${{ secrets.API_ID }}
           vkey: ${{ secrets.API_KEY }}
 #           file: ${{ inputs.veracode_scan_artifact }}
-          file: "verademo.war"
+          file: ${{ env.veracode_artifact }}
           fail_build: true
