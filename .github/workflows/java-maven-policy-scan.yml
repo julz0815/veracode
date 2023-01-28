@@ -64,6 +64,7 @@ jobs:
         else
           echo "no files found"
         fi
+        echo $artifact_file
           
     - uses: actions/upload-artifact@v3
       with:
