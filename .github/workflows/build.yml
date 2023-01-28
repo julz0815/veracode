@@ -17,10 +17,8 @@ on:
         type: string
   
 jobs:
-  build:
+  build-java-maven:
     runs-on: ubuntu-latest
-    outputs:
-      veracode_scan_artifact: ${{ steps.identify.outputs.veracode_scan_artifact }}
     steps:
     - name: debug
       run: |
