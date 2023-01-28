@@ -24,7 +24,9 @@ jobs:
 #           path: veracode/
       
       - name: Display structure of downloaded files
-        run: ls -R
+        run: |
+          file=$(ls -1 ./ | head -n 1)
+          echo "Only file in directory: $file"
 
       # run the pipeline scan action
       - name: Veracode Pipeline-Scan
