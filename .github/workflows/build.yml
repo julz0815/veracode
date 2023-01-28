@@ -15,6 +15,10 @@ on:
       event_name:
         required: true
         type: string
+    outputs:
+      veracode_scan_artifact:
+        description: 'The Artifact Name'
+        value: ${{ jobs.build.outputs.veracode_scan_artifact }}
   
 jobs:
   build:
@@ -59,7 +63,7 @@ jobs:
         fi
         echo $artifact_file
         echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
-        echo "::set-output name=veracode_scan_artifact::$artifact_file"
+        echo "veracode_scan_artifact=$artifact_file" >> $GITHUB_OUTPUT
         
     - uses: actions/upload-artifact@v3
       with:
