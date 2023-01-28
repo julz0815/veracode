@@ -28,7 +28,7 @@ jobs:
         dotnet --version
     - name: Build application
       run: |
-        publish -c Debug -o ./output
+        dotnet publish -c Debug -o ./output
     - name: Create zip archive
       run: zip -r veracode.zip ./output -x .git/**\*
         
