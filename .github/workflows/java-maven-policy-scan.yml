@@ -62,12 +62,12 @@ jobs:
           echo "no files found"
         fi
         echo $artifact_file
-        echo "::set-env name=veracode_artifact::$artifact_file"
+        echo "veracode_artifact=artifact_file" >> $GITHUB_ENV
           
     - uses: actions/upload-artifact@v3
       with:
         name: veracode-artifact
-        path: target/${{ env.veracode_artifact }}
+        path: target/$veracode_artifact
         
 #   build:
 #     needs: register
