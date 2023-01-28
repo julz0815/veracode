@@ -61,6 +61,8 @@ jobs:
         elif [ ! -z "$ear_files" ]; then
           echo "::set-output name=artifact::$ear_files"
           artifact_file=$ear_files
+        else
+          echo "no files found"
           
     - uses: actions/upload-artifact@v3
       with:
