@@ -1,4 +1,4 @@
-name: Veracode Container Security
+name: Veracode Container Security EA
 
 run-name: Container Security - ${{ github.event.client_payload.repository.name }}
 
