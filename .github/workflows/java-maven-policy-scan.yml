@@ -53,13 +53,13 @@ jobs:
         war_files=$(find target -name "*.war" -type f -maxdepth 1 -exec basename {} \;)
         ear_files=$(find target -name "*.ear" -type f -maxdepth 1 -exec basename {} \;)
         if [ ! -z "$jar_files" ]; then
-          echo "::set-output name=artifact::$jar_files"
+          
           artifact_file=$jar_files
         elif [ ! -z "$war_files" ]; then
-          echo "::set-output name=artifact::$war_files"
+          
           artifact_file=$war_files
         elif [ ! -z "$ear_files" ]; then
-          echo "::set-output name=artifact::$ear_files"
+          
           artifact_file=$ear_files
         else
           echo "no files found"
