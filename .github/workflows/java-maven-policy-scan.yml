@@ -64,10 +64,6 @@ jobs:
         echo $artifact_file
         echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
         
-    - name: test artifact file
-      run: | 
-        echo $veracode_artifact
-          
     - uses: actions/upload-artifact@v3
       with:
         name: veracode-artifact
@@ -111,14 +107,18 @@ jobs:
 
 
 
-#   pipeline_scan:
-#     # needs the build step before this job will start running
-#     needs: build
-#     runs-on: ubuntu-latest
-# #     uses: ./.github/workflows/veracode-pipeline-scan.yml
-#     name: pipeline scan
+  pipeline_scan:
+    # needs the build step before this job will start running
+    needs: build
+    runs-on: ubuntu-latest
+#     uses: ./.github/workflows/veracode-pipeline-scan.yml
+    name: pipeline scan
 
-#     steps:
+    steps:
+      - name: test artifact file
+        run: | 
+          echo $veracode_artifact
+          echo ${{ env.veracode_artifact }}
 #       - name: checkout repo
 #         uses: actions/checkout@v3
       
