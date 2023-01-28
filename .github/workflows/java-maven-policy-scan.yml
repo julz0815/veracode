@@ -62,7 +62,7 @@ jobs:
           echo "no files found"
         fi
         echo $artifact_file
-        echo "veracode_artifact=artifact_file" >> $GITHUB_ENV
+        echo "veracode_artifact=$artifact_file" >> $GITHUB_ENV
         
     - name: test artifact file
       run: | 
