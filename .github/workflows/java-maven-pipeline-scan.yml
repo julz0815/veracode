@@ -4,7 +4,7 @@ run-name: ${{ github.event.client_payload.repository.name }}
 
 on:
   repository_dispatch:
-    types: [java-maven-policy-scan]
+    types: [java-maven-pipeline-scan]
 
 # env:
 #   workflow_name: 'my-workflow'
