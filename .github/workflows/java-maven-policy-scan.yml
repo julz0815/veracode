@@ -49,9 +49,9 @@ jobs:
       
     - name: Identify the Artifact
       run: |
-        jar_files=$(find target -name "*.jar" -type f -exec basename {} \;)
-        war_files=$(find target -name "*.war" -type f -exec basename {} \;)
-        ear_files=$(find target -name "*.ear" -type f -exec basename {} \;)
+        jar_files=$(find target -name "*.jar" -type f -depth 1 -exec basename {} \;)
+        war_files=$(find target -name "*.war" -type f -depth 1 -exec basename {} \;)
+        ear_files=$(find target -name "*.ear" -type f -depth 1 -exec basename {} \;)
         echo "jar_files: $jar_files"
         echo "war_files: $war_files"
         echo "ear_files: $ear_files"
