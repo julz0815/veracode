@@ -15,6 +15,11 @@ jobs:
         github_token: ${{secrets.GITHUB_TOKEN}}
         run_id: 4223174702
         repo: vincentdeng-veracode/verademo-github-app
-        path: ./veracode
-    - name: Display structure of downloaded files
-      run: ls -R
+    - name: Veracode Pipeline-Scan
+      id: pipeline-scan
+      uses: veracode/Veracode-pipeline-scan-action@pipeline-scan-beta-v0.0.4
+      with:
+        vid: ${{ secrets.API_ID }}
+        vkey: ${{ secrets.API_KEY }}
+        file: ./veracode-artifact/verademo.war
+        fail_build: true
