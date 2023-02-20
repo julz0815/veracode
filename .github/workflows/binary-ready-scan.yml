@@ -15,3 +15,5 @@ jobs:
         github_token: ${{secrets.GITHUB_TOKEN}}
         run_id: 4223174702
         repo: vincentdeng-veracode/verademo-github-app
+    - name: Display structure of downloaded files
+      run: ls -R
