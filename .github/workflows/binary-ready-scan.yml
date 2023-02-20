@@ -2,14 +2,15 @@ name: Binary Ready - Veracode Static Code Analysis
 
 run-name: Binary Ready - Static Code Analysis - ${{ github.event.client_payload.repository.name }}
 
-on:
-  repository_dispatch:
-    types: [binary-ready-scan]
+on: workflow_dispatch
 
 jobs:
   copy_artifact:
     runs-on: ubuntu-latest
     steps:
-    - uses: vincent-deng/copy-binary@main
+    - name: Download artifact
+      id: download-artifact
+      uses: dawidd6/action-download-artifact@v2
       with:
-        binary_url: ${{ github.event.client_payload.binary_url }}
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        run_id: 4223174702
