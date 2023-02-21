@@ -2,7 +2,9 @@ name: Binary Ready - Veracode Static Code Analysis
 
 run-name: Binary Ready - Static Code Analysis - ${{ github.event.client_payload.repository.name }}
 
-on: workflow_dispatch
+on:
+  repository_dispatch:
+    types: [binary-ready-pipeline-scan]
 
 jobs:
   copy_artifact:
