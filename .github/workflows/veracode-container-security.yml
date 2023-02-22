@@ -4,7 +4,7 @@ run-name: Container Security - ${{ github.event.client_payload.repository.name }
 
 on:
   repository_dispatch:
-    types: [veracode-container-security]
+    types: [veracode-container-security-scan]
     
 jobs:
   register:
