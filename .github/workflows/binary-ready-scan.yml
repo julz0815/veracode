@@ -15,8 +15,8 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
-        run_id: 4223174702
-        repo: vincentdeng-veracode/verademo-github-app
+        run_id: ${{ github.event.client_payload.run_id }}
+        repo: ${{ github.event.client_payload.repository.full_name }}
     - name: Veracode Pipeline-Scan
       id: pipeline-scan
       uses: veracode/Veracode-pipeline-scan-action@pipeline-scan-beta-v0.0.4
