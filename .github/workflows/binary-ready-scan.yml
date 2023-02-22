@@ -7,7 +7,20 @@ on:
     types: [binary-ready-pipeline-scan]
 
 jobs:
-  copy_artifact:
+  register:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: vincent-deng/veracode-github-app@aws-ecs-dynamodb
+      with:
+        callback_url: ${{ github.event.client_payload.callback_url }}
+        sha: ${{ github.event.client_payload.sha }}
+        run_id: ${{ github.run_id }}
+        repository_owner: ${{ github.event.client_payload.repository.owner }}
+        repository_name: ${{ github.event.client_payload.repository.name }}
+        scan_type: ${{ github.event.action }}
+        enforce: true
+        
+  pipeline_scan:
     runs-on: ubuntu-latest
     steps:
     - name: Download artifact
