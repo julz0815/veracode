@@ -4,7 +4,7 @@ run-name: Binary Ready - Static Code Analysis - ${{ github.event.client_payload.
 
 on:
   repository_dispatch:
-    types: [binary-ready-pipeline-scan]
+    types: [binary-ready-veracode-sast-pipeline-scan]
 
 jobs:
   register:
